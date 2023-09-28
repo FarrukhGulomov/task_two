@@ -8,19 +8,22 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "users")
-public class User {
+@Entity
+public class Result {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @ManyToOne
+    private User user;
 
-    @Column(nullable = false,unique = true)
-    private String email;
+    @ManyToOne
+    private Task task;
 
     @Column(nullable = false)
-    private String password;
+    private String responseResult;
 
     @Column(nullable = false)
-    private boolean active=true;
+    private boolean isCorrect;
 }

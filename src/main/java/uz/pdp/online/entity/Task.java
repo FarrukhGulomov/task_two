@@ -8,19 +8,22 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "users")
-public class User {
+@Entity
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,unique = true)
-    private String email;
+    @ManyToOne
+    private Language language;
 
     @Column(nullable = false)
-    private String password;
+    private String code;
 
     @Column(nullable = false)
-    private boolean active=true;
+    private String description;
+
+    @Column(nullable = false)
+    private String solution;
 }

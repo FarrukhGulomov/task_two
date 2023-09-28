@@ -8,19 +8,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "users")
-public class User {
-
+@Entity
+public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false,unique = true)
-    private String email;
+    private String name;
 
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
-    private boolean active=true;
+    private boolean status=true;
 }
